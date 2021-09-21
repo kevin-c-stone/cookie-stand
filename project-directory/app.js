@@ -8,11 +8,12 @@ function generateRange(min, max) {
 
 
 let seattle = {
+  name: 'seattle',
   minCustPerHour: 23,
   maxCustPerHour: 65,
   avgCookPerCust: 6.3,
   cookiesPerHour: [],
-  hourlyCustomers: function(min, max) {
+  hourlyCustomers: function() {
     for (let i = 0; i < hours.length; i++) {
      let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
 
@@ -21,8 +22,21 @@ let seattle = {
   },
 };
 
+function generateLineItems(store) {
+  let parentEl = document.querySelector(`#${store.name}`);
+
+  for (let i = 0; i < store.cookiesPerHour.length; i++){
+    let newItem = document.createElement('li');
+
+    newItem.innerText = store.cookiesPerHour[i];
+
+    parentEl.appendChild(newItem);
+  }
+}
+
 console.log(seattle);
 seattle.hourlyCustomers();
+generateLineItems();
 
 let tokyo = {
   minCustPerHour: 3,
