@@ -5,31 +5,36 @@ const storeLocation = [
         location: 'Seattle',
         minCustomer: 23,
         maxCustomer: 65,
-        avgCookieSales: 6.3
+        avgCookieSales: 6.3,
+        totalCookies: null
     },
     {
         location: 'Tokyo',
         minCustomer: 3,
         maxCustomer: 24,
-        avgCookieSales: 1.2
+        avgCookieSales: 1.2,
+        totalCookies: null
     },
     {
         location: 'Dubai',
         minCustomer: 11,
         maxCustomer: 38,
-        avgCookieSales: 63.7
+        avgCookieSales: 63.7,
+        totalCookies: null
     },
     {
         location: 'Paris',
         minCustomer: 20,
         maxCustomer: 38,
-        avgCookieSales: 2.3
+        avgCookieSales: 2.3,
+        totalCookies: null
     },
     {
         location: 'Lima',
         minCustomer: 2,
         maxCustomer: 16,
-        avgCookieSales: 4.6
+        avgCookieSales: 4.6,
+        totalCookies: null
     }
 ];
 
