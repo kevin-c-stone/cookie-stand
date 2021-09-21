@@ -1,94 +1,143 @@
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+'use strict';
+
+
+let hours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
 
 
 function generateRange(min, max) {
- let number = Math.floor(Math.random() * (max - min + 1) + min);
- return number;
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
 
 let seattle = {
   name: 'seattle',
   minCustPerHour: 23,
   maxCustPerHour: 65,
   avgCookPerCust: 6.3,
-  cookiesPerHour: [],
+  salesTotals: [],
+  grandTotal: 0,
   hourlyCustomers: function() {
-    for (let i = 0; i < hours.length; i++) {
-     let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
+    for (let hour = 0; hour < hours.length; hour++) {
+      
+      let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
 
-     this.cookiesPerHour.push(Math.round(generateNumber * this.avgCookPerCust));
+
+      let customerSales = Math.round(generateNumber * this.avgCookPerCust);
+      this.salesTotals.push(`${hours[hour]}: total sales ${customerSales}`);
+      this.grandTotal = this.grandTotal + customerSales;
     }
   },
 };
 
-function generateLineItems(store) {
-  let parentEl = document.querySelector(`#${store.name}`);
-
-  for (let i = 0; i < store.cookiesPerHour.length; i++){
-    let newItem = document.createElement('li');
-
-    newItem.innerText = store.cookiesPerHour[i];
-
-    parentEl.appendChild(newItem);
-  }
-}
-
-console.log(seattle);
-seattle.hourlyCustomers();
-generateLineItems();
-
 let tokyo = {
+  name: 'tokyo',
   minCustPerHour: 3,
   maxCustPerHour: 24,
   avgCookPerCust: 1.2,
-  hourlyCustomers: function(min, max) {
-    for (let i = 0; i < hours.length; i++) {
-     let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
+  salesTotals: [],
+  grandTotal: 0,
+  hourlyCustomers: function() {
+    for (let hour = 0; hour < hours.length; hour++) {
+      
+      let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
 
-     console.log(Math.round(generateNumber * this.avgCookPerCust));
+      
+      let customerSales = Math.round(generateNumber * this.avgCookPerCust);
+      this.salesTotals.push(`${hours[hour]}: total sales ${customerSales}`);
+      this.grandTotal = this.grandTotal + customerSales;
     }
   },
 };
-
 
 let dubai = {
+  name: 'dubai',
   minCustPerHour: 11,
   maxCustPerHour: 38,
-  avgCookPerCust: 63.7,
-  hourlyCustomers: function(min, max) {
-    for (let i = 0; i < hours.length; i++) {
-     let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
+  avgCookPerCust: 3.7,
+  salesTotals: [],
+  grandTotal: 0,
+  hourlyCustomers: function() {
+    for (let hour = 0; hour < hours.length; hour++) {
+     
+      let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
 
-     console.log(Math.round(generateNumber * this.avgCookPerCust));
+
+      let customerSales = Math.round(generateNumber * this.avgCookPerCust);
+      this.salesTotals.push(`${hours[hour]}: total sales ${customerSales}`);
+      this.grandTotal = this.grandTotal + customerSales;
     }
   },
 };
 
-
 let paris = {
+  name: 'paris',
   minCustPerHour: 20,
   maxCustPerHour: 38,
   avgCookPerCust: 2.3,
-  hourlyCustomers: function(min, max) {
-    for (let i = 0; i < hours.length; i++) {
-     let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
+  salesTotals: [],
+  grandTotal: 0,
+  hourlyCustomers: function() {
+    for (let hour = 0; hour < hours.length; hour++) {
+     
+      let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
 
-     console.log(Math.round(generateNumber * this.avgCookPerCust));
+
+      let customerSales = Math.round(generateNumber * this.avgCookPerCust);
+      this.salesTotals.push(`${hours[hour]}: total sales ${customerSales}`);
+      this.grandTotal = this.grandTotal + customerSales;
     }
   },
 };
 
-
 let lima = {
+  name: 'lima',
   minCustPerHour: 2,
   maxCustPerHour: 16,
   avgCookPerCust: 4.6,
-  hourlyCustomers: function(min, max) {
-    for (let i = 0; i < hours.length; i++) {
-     let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
+  salesTotals: [],
+  grandTotal: 0,
+  hourlyCustomers: function() {
+    for (let hour = 0; hour < hours.length; hour++) {
+      
+      let generateNumber = generateRange(this.minCustPerHour, this.maxCustPerHour);
 
-     console.log(Math.round(generateNumber * this.avgCookPerCust));
+
+      let customerSales = Math.round(generateNumber * this.avgCookPerCust);
+      this.salesTotals.push(`${hours[hour]}: total sales ${customerSales}`);
+      this.grandTotal = this.grandTotal + customerSales;
     }
   },
 };
+
+
+
+
+function generateLineItems(store) {
+  
+  let parentEl = document.querySelector(`#${store.name}`);
+
+  
+  for (let total = 0; total < store.salesTotals.length; total++) {
+
+    let newItem = document.createElement('li');
+
+    newItem.innerText = store.salesTotals[total];
+
+    parentEl.appendChild(newItem);
+  }
+  let lastItem = document.createElement('li');
+  lastItem.innerText = store.grandTotal;
+  parentEl.appendChild(lastItem);
+}
+
+
+
+seattle.hourlyCustomers();
+tokyo.hourlyCustomers();
+dubai.hourlyCustomers();
+paris.hourlyCustomers();
+lima.hourlyCustomers();
+generateLineItems(seattle);
+generateLineItems(tokyo);
+generateLineItems(dubai);
+generateLineItems(paris);
+generateLineItems(lima);
