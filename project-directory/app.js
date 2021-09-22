@@ -14,6 +14,8 @@ function Location(name, minCustPerHour, maxCustPerHour, avgSalePerCust) {
   Location.allLocations.push(this);
 }
 
+
+
 Location.allLocations = [];
 
 Location.prototype.randomNumberOfCustomers = function() {
