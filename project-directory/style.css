@@ -3,17 +3,5 @@ body {
 }
 
 li {
-    padding: 2em 2em;
-}
-
-lh {
-    max-width: 200px;
-    text-align: center;
-    display: inline-block;
-}
-
-ul {
-    border: thin solid black;
-    display: inline-block;
-    max-width: 200px;
+    padding: 4em 2em;
 }
