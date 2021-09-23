@@ -1,7 +1,84 @@
-body {
-    background-color: rgb(103, 129, 87);
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
 }
 
-li {
-    padding: 4em 2em;
+body {
+    background-color: rgb(103, 129, 87);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.navbar {
+    background-color: bisque;
+    height: 100px;
+    width: 100%;
+    border: .2em solid black;
+}
+
+.navbar-img {
+    height: 5em;
+    width: 15em;
+    line-height: 80px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-right: 20px;
+  }
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+
+a.active,a:hover {
+    background: rgb(209, 162, 105);
+    transition: .5s;
+}
+
+table {
+    border: 1em solid black;
+}
+
+main {
+    height: calc(100vh - 300px);
+    padding: 20px 100px;
+    box-sizing: border-box;
+  }
+
+.location-img {
+    height: 50px;
+    width: 50px;
+    border: solid black;
+}
+
+.card-header { /*this was just card*/
+    width: 250px;
+    height: 150px;
+    display: inline-block;
+    border: solid thin black;
+    /* position: relative; */
+    background-color: bisque;
+    padding: 5px;
+}
+
+
+  
+.card-header h3 {
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
 }
