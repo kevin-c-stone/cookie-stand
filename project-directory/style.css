@@ -33,6 +33,7 @@ nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
+
 }
 
 nav ul li a {
@@ -40,20 +41,23 @@ nav ul li a {
     text-transform: uppercase;
     padding: 7px 13px;
     border-radius: 3px;
+    color: black;
 }
 
-a.active,a:hover {
+a:hover {
     background: rgb(209, 162, 105);
     transition: .5s;
 }
 
 table {
     border: 1em solid black;
+    background-color: bisque;
+    padding: 1em;
 }
 
 main {
     height: calc(100vh - 300px);
-    padding: 20px 100px;
+    padding: 50px 100px;
     box-sizing: border-box;
   }
 
@@ -63,16 +67,16 @@ main {
     border: solid black;
 }
 
-.card-header { /*this was just card*/
+.card-header {
     width: 250px;
     height: 150px;
     display: inline-block;
-    border: solid thin black;
-    /* position: relative; */
+    border: solid 2px black;
+    object-position: relative;
     background-color: bisque;
     padding: 5px;
+    margin: 20px;
 }
-
 
   
 .card-header h3 {
