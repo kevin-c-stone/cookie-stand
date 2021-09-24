@@ -126,9 +126,7 @@ function render () {
 
   dataEl = document.createElement('td');
   dataEl.innerText = this.dailySales;
-  rowEl.appendChild(dataEl);
-
- 
+  rowEl.appendChild(dataEl); 
 }
 
 // Form
@@ -156,6 +154,6 @@ applicationForm.addEventListener('submit', newCookieStand);
 
 
 
-newApplicant.calcAvgCookiesBought();
-newApplicant.renderTableRow();
+// newApplicant.calcAvgCookiesBought();
+// newApplicant.renderTableRow();
 
