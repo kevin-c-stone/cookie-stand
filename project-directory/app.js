@@ -104,3 +104,58 @@ function renderFooter() {
 }
 
 renderFooter();
+
+StoreLocation.prototype.render = render;
+
+function render () {
+  let parentEl = document.getElementById('sales-data');
+
+  let rowEl = document.createElement('tr');
+  parentEl.appendChild(rowEl);
+  let dataEl = document.createElement('td');
+  dataEl.innerText = this.name;
+  rowEl.appendChild(dataEl);
+
+
+
+  for (let i = 0; i < this.hourlySales.length; i++) {
+    let dataEl = document.createElement('td');
+    dataEl.innerText = this.hourlySales[i];
+    rowEl.appendChild(dataEl);
+  }
+
+  dataEl = document.createElement('td');
+  dataEl.innerText = this.dailySales;
+  rowEl.appendChild(dataEl);
+
+ 
+}
+
+// Form
+let applicationForm = document.getElementById('apply');
+
+function newCookieStand(event) {
+  event.preventDefault();
+  
+  let name = event.target.city.value;
+  let minCust = event.target.minimumCust.value;
+  let maxCust = event.target.maximumCust.value;
+  let avgCookiesPerCust = event.target.avgCookieSale.value;
+  let hourlySales = [];
+  let dailySales = 0;
+
+  let newApplicant = new StoreLocation(name, minCust, maxCust, avgCookiesPerCust, hourlySales, dailySales);
+  console.log(newApplicant);
+
+  newApplicant.calcAvgCookiesBought();
+  newApplicant.render();
+  applicationForm.reset();
+}
+
+applicationForm.addEventListener('submit', newCookieStand);
+
+
+
+newApplicant.calcAvgCookiesBought();
+newApplicant.renderTableRow();
+
