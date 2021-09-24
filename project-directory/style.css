@@ -50,9 +50,12 @@ a:hover {
 }
 
 table {
-    border: 1em solid black;
+    border: .5em solid black;
     background-color: bisque;
     padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
 }
 
 main {
@@ -92,12 +95,13 @@ main {
 }
 
 form {
-    width: 960px;
+    width: 300px;
     margin-left: auto;
     margin-right: auto;
     background-color: bisque;
     border: solid 2px black;
     padding: 1em;
+    margin-top: 50px;
 }
 
 .thelegend {
@@ -105,7 +109,7 @@ form {
 }
 
 .thelabel {
-    margin-right: 60px;
+    margin-right: 40px;
 }
 
 .theinput {
