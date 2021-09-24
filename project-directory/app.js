@@ -136,9 +136,9 @@ function newCookieStand(event) {
   event.preventDefault();
   
   let name = event.target.city.value;
-  let minCust = event.target.minimumCust.value;
-  let maxCust = event.target.maximumCust.value;
-  let avgCookiesPerCust = event.target.avgCookieSale.value;
+  let minCust = parseInt(event.target.minimumCust.value);
+  let maxCust = parseInt(event.target.maximumCust.value);
+  let avgCookiesPerCust = parseInt(event.target.avgCookieSale.value);
   let hourlySales = [];
   let dailySales = 0;
 
