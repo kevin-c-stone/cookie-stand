@@ -77,16 +77,28 @@ lima.renderTableRow();
 function renderFooter() {
 
   let parentEl = document.getElementById('sales-data');
-  let rowEl = document.createElement('tr');
+  let rowEl = document.createElement('tfoot');
+  rowEl.setAttribute('id', 'tablefooter');
 
   let dataEl = document.createElement('td');
   dataEl.innerText = 'Total';
   rowEl.appendChild(dataEl);
 
-  let grandTotal = 0;
+  let gTotal = calculateTotals(dataEl, rowEl);
+
+  dataEl = document.createElement('td');
+  dataEl.innerText = gTotal;
+  rowEl.appendChild(dataEl);
+  parentEl.appendChild(rowEl);
+}
+
+renderFooter();
+
+function calculateTotals(elData, elRow) {
+let grandTotal = 0;
   for (let i = 0; i < storeHours.length; i++) {
 
-    let dataEl = document.createElement('td');
+    let elData = document.createElement('td');
     let sum = 0;
 
     for (let j = 0; j < StoreLocation.all.length; j++) {
@@ -94,16 +106,14 @@ function renderFooter() {
       sum = sum + StoreLocation.all[j].hourlySales[i];
       grandTotal = grandTotal + StoreLocation.all[j].hourlySales[i];
     }
-    dataEl.innerText = sum;
-    rowEl.appendChild(dataEl);
+    elData.innerText = sum;
+    elRow.appendChild(elData);
   }
-  dataEl = document.createElement('td');
-  dataEl.innerText = grandTotal;
-  rowEl.appendChild(dataEl);
-  parentEl.appendChild(rowEl);
+  return grandTotal;
+
 }
 
-renderFooter();
+
 
 StoreLocation.prototype.render = render;
 
@@ -129,6 +139,13 @@ function render () {
   rowEl.appendChild(dataEl); 
 }
 
+function updateTotals() {
+  let elGrab = document.getElementById('tablefooter');
+  elGrab.remove();
+
+  renderFooter();
+}
+
 // Form
 let applicationForm = document.getElementById('apply');
 
@@ -148,6 +165,7 @@ function newCookieStand(event) {
   newApplicant.calcAvgCookiesBought();
   newApplicant.render();
   applicationForm.reset();
+  updateTotals();
 }
 
 applicationForm.addEventListener('submit', newCookieStand);
